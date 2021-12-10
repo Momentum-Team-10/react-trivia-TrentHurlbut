@@ -1,9 +1,11 @@
 import he from '../../node_modules/he/he'
 import { useState } from 'react';
 
-export default function QuestionCard({ clickFunction, text, correctAnswer, answers }) {
+export default function QuestionCard({ clickFunction, text, correctAnswer, answers, passedScore, passedTotal }) {
 
-  const[answerStatus, setAnswerStatus] = useState(null)
+  const [answerStatus, setAnswerStatus] = useState(null)
+  const [score, setScore] = useState(passedScore)
+  const [total, setTotal] = useState(passedTotal)
 
   console.log(answers)
   console.log(correctAnswer)

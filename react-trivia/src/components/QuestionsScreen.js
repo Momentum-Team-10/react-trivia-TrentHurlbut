@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import QuestionCard from './QuestionCard';
 
-export default function QuestionsScreen({ category, clickFunction }) {
+export default function QuestionsScreen({ category, clickFunction, passedScore, passedTotal }) {
 
   const [questions, setQuestions] = useState([])
+  const [score, setScore] = useState(passedScore)
+  const [total, setTotal] = useState(passedTotal)
 
   useEffect(() => {
     axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&type=multiple`)
