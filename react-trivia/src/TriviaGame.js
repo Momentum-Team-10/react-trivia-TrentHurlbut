@@ -7,18 +7,19 @@ function TriviaGame() {
   const [gameStart, setGameStart] = useState(true);
   const [buttonScreen, setButtonScreen] = useState(true);
   const [category, setCategory] = useState(0);
-  const [categoryButtons, setCategoryButtons] = useState([])
-  const [score, setScore] = useState(0)
-  const [total, setTotal] = useState(0)
+  const [score, setScore] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  let categoryButtons = [];
 
   let toQuestion = (category) => {
     setCategory(category);
     setButtonScreen(false)
-  }
+  };
 
   let toCategories = () => {
     setButtonScreen(true)
-  }
+  };
 
   if (gameStart) {
     let usedRequests = [];
@@ -36,7 +37,7 @@ function TriviaGame() {
       usedRequests.push(randomizer);
     }
     return categoryButtons;
-  }
+  };
 
   return (buttonScreen && gameStart ? (
       <>
@@ -55,8 +56,12 @@ function TriviaGame() {
       <h3>Score: {score} / {total} </h3>
       </>
       )
-    : < QuestionsScreen clickFunction = { toCategories } category = { category } />
+      : < QuestionsScreen
+        clickFunction={toCategories}
+        ategory={category}
+        passedScore={score}
+        passedTotal={total} />
   )
-}
+};
 
 export default TriviaGame;

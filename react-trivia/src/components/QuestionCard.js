@@ -38,9 +38,12 @@ export default function QuestionCard({ clickFunction, text, correctAnswer, answe
         className="nes-btn is-warning ab"
         onClick={() => {
           if (answer === correctAnswer) {
-              setAnswerStatus('correct')
+            setAnswerStatus('correct')
+            setScore(score + 1)
+            setTotal(total + 1)
           } else {
-              setAnswerStatus('incorrect')
+            setAnswerStatus('incorrect')
+            setTotal(total + 1)
           }
         }}>{he.decode(answer)}</button>))}
     </div>

@@ -23,9 +23,12 @@ export default function QuestionsScreen({ category, clickFunction, passedScore, 
         clickFunction={clickFunction}
         correctAnswer={question.correct_answer}
         answers={question.incorrect_answers}
+        passedScore={score}
+        passedTotal={total}
       />))}
     </div>
     <div className="qb">
+    <h3>Score : {score} / {total}</h3>
     <button type="button" className="nes-btn is-primary" onClick={() => { clickFunction() }}>Back</button>
     </div>
     </>
