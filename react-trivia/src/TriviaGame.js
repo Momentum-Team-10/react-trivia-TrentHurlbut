@@ -39,7 +39,7 @@ function TriviaGame() {
     return categoryButtons;
   };
 
-  return (buttonScreen && gameStart ? (
+  return (buttonScreen & gameStart ? (
       <>
       <h1>Welcome to 8-bit Trivia!</h1>
       <div className="button-screen">
@@ -56,7 +56,7 @@ function TriviaGame() {
       <h3>Score: {score} / {total} </h3>
       </>
       )
-      : < QuestionsScreen
+    : < QuestionsScreen
         clickFunction={toCategories}
         ategory={category}
         passedScore={score}
