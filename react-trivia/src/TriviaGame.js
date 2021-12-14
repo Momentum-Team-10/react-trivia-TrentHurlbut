@@ -7,25 +7,25 @@ function TriviaGame() {
   const [gameStart, setGameStart] = useState(true);
   const [buttonScreen, setButtonScreen] = useState(true);
   const [category, setCategory] = useState(0);
-  const [categoryButtons, setCategoryButtons] = useState([])
+  const [categoryButtons, setCategoryButtons] = useState([]);
   const [score, setScore] = useState(0);
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(0);
 
   const incrementScore = () => {
-    setScore(score + 1)
+    setScore(score + 1);
   }
 
   const incrementTotal = () => {
-    setTotal(total + 1)
+    setTotal(total + 1);
   }
  
   let toQuestion = (category) => {
     setCategory(category);
-    setButtonScreen(false)
+    setButtonScreen(false);
   }
 
   let toCategories = () => {
-    setButtonScreen(true)
+    setButtonScreen(true);
   }
 
   if (gameStart) {
@@ -37,7 +37,12 @@ function TriviaGame() {
         randomizer = Math.floor(Math.random() * 23)
       }
   
-      categoryButtons.push(<CategoryButton key={randomizer + 9} searchkey={randomizer + 9} clickFunction={() => { toQuestion(randomizer + 9) }} />);
+      categoryButtons.push(<CategoryButton
+        key={randomizer + 9}
+        searchkey={randomizer + 9}
+        clickFunction={() => {
+          toQuestion(randomizer + 9)
+        }} />);
       usedRequests.push(randomizer);
     }
     setGameStart(false);
@@ -55,8 +60,14 @@ function TriviaGame() {
       </>
       )
     :
-    < QuestionsScreen clickFunction={toCategories} category={category} passedScore={score} passedTotal={total} incrementScore={incrementScore} incrementTotal={incrementTotal}/>
+    < QuestionsScreen
+      clickFunction={toCategories}
+      category={category}
+      passedScore={score}
+      passedTotal={total}
+      incrementScore={incrementScore}
+      incrementTotal={incrementTotal} />
   )
-}
+};
 
 export default TriviaGame;
