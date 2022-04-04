@@ -5,9 +5,6 @@ export default function QuestionCard({ text, correctAnswer, answers, incrementSc
 
   const [answerStatus, setAnswerStatus] = useState(null)
 
-  console.log(answers)
-  console.log(correctAnswer)
-
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -17,7 +14,6 @@ export default function QuestionCard({ text, correctAnswer, answers, incrementSc
 
   let newAnswers = [correctAnswer, ...answers];
   shuffleArray(newAnswers);
-  console.log(`question card renders ${text}`)
 
   return (answerStatus === null ? (
     <div className="question-card">
